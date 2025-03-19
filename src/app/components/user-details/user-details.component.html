@@ -1,0 +1,12 @@
+<div>userId: {{user.id}}</div>  
+<div>name: {{user.name}}</div>
+<div>username: {{user.username}}</div>
+<div>email: {{user.email}}</div>
+<div>phone: {{user.phone}}</div>
+<div>website: {{user.website}}</div>
+<div>company: {{user.company.name}}</div>
+<div>address: {{user.address.street}}, {{user.address.suite}}, {{user.address.city}}, {{user.address.zipcode}}</div>
+
+<button (click)="showOrHidePosts()">{{isShowDetailsPost ? 'Hide Posts' : 'Show Posts'}}</button>
+
+<app-posts *ngIf="isShowDetailsPost" [userId]="user.id"></app-posts>

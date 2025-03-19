@@ -1,0 +1,5 @@
+<div>userId: {{user.id}}</div>
+<div>name: {{user.name}}</div>
+<button (click)="showOrHide()">{{isShowDetails?'Hide':'Show'}}</button>
+
+<app-user-details *ngIf="isShowDetails" [user]="user"></app-user-details>
