@@ -11,7 +11,8 @@ import { PostComponent } from '../post/post.component';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  @Input() userId: number;
+  @Input() 
+  userId: number;
   posts: IPost[] = [];
 
   constructor(private postService: PostService) { }

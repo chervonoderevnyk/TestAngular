@@ -1,7 +1,11 @@
 <!-- <div>userId: {{post.userId}}</div> -->
-<div>id: {{post.id}}</div>
+<div>postId: {{post.id}}</div>
 <div>title: {{post.title}}</div>
 
 <button (click)="showOrHidePostDetails()">{{isShowDetailsPost ? 'Hide Details' : 'Show Details'}}</button>
 
 <app-post-details *ngIf="isShowDetailsPost" [post]="post"></app-post-details>
+
+<button (click)="showOrHideComment()">{{isShowComment ? 'Hide Comments' : 'show Comments'}}</button>
+
+<app-comments *ngIf="isShowComment" [postId]="post.id"></app-comments> 
