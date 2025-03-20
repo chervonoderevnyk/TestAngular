@@ -1,5 +1,13 @@
-<div>userId: {{user.id}}</div>
-<div>name: {{user.name}}</div>
-<button (click)="showOrHide()">{{isShowDetails?'Hide':'Show'}}</button>
-
-<app-user-details *ngIf="isShowDetails" [user]="user"></app-user-details>
+<div class="user-card" [class.active]="isShowDetails">
+    <div class="user-info">
+      <div><strong>ID:</strong> {{ user.id }}</div>
+      <div><strong>Name:</strong> {{ user.name }}</div>
+    </div>
+    
+    <button (click)="showOrHide()">
+      {{ isShowDetails ? 'Hide Details' : 'Show Details' }}
+    </button>
+  
+    <app-user-details *ngIf="isShowDetails" [user]="user"></app-user-details>
+  </div>
+  

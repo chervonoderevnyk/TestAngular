@@ -1,0 +1,35 @@
+.app-container {
+  display: flex;
+  width: 97vw; /* Тепер контейнери займають 95% ширини екрану */
+  height: 100vh; /* Опціонально, щоб контейнери займали всю висоту */
+  gap: 10px; /* Відступ між контейнерами */
+  padding: 5px; /* Відступи зліва і справа */
+  margin: auto; /* Центруємо весь блок */
+}
+
+.app-container-users {
+  flex: 25%; /* Займає 25% ширини */
+  background: #e0dbdb;
+  padding: 20px;
+  border-radius: 12px; /* Закруглення тільки зліва */
+  box-shadow: 5px 8px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Вирівнюємо текст по центру */
+}
+
+.app-container-posts {
+  flex: 37%; /* Займає 37% ширини */
+  background: #e0dbdb;
+  padding: 20px;
+  border-radius: 12px; /* Не потрібне закруглення */
+  box-shadow: 5px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.app-container-comments {
+  flex: 37%; /* Займає 37% ширини */
+  background: #e0dbdb;
+  padding: 20px;
+  border-radius: 12px; /* Закруглення тільки справа */
+  box-shadow: 5px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
