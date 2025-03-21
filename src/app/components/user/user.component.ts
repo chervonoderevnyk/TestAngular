@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user.component.scss'
 })
 export class UserComponent implements OnInit {
-// [x: string]: any;
 
   @Input() 
   user: IUser;

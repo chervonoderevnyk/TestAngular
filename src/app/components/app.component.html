@@ -1,12 +1,12 @@
 <div class="app-container">
   <div class="app-container-users">
     <h2>Users List</h2>
-    <app-users></app-users>
+    <app-users (userSelected)="selectUser($event)"></app-users>
   </div>
 
-  <div class="app-container-posts">
+  <div class="app-container-posts" *ngIf="selectedUser">
     <h2>Posts List</h2>
-    <app-posts></app-posts>
+    <app-posts *ngIf="isShowDetailsPost" [userId]="selectedUser.id"></app-posts>
   </div>
 
   <div class="app-container-comments">

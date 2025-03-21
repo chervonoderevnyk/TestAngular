@@ -1,4 +1,5 @@
-<!-- <div>userId: {{post.userId}}</div> -->
+<div class="post-card">
+<div>userId: {{post.userId}}</div>
 <div>postId: {{post.id}}</div>
 <div>title: {{post.title}}</div>
 
@@ -9,3 +10,4 @@
 <button (click)="showOrHideComment()">{{isShowComment ? 'Hide Comments' : 'show Comments'}}</button>
 
 <app-comments *ngIf="isShowComment" [postId]="post.id"></app-comments> 
+</div>
