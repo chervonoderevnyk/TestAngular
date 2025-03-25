@@ -13,6 +13,7 @@ export class CommentService {
   constructor(private httpClient: HttpClient) { }
 
   getCommentsByPostId(id: number): Observable<IComment[]> {
+    console.log('Requesting comments for postId:', id);
     return this.httpClient.get<IComment[]>(urls.posts + `/${id}/comments`);
   }
 }

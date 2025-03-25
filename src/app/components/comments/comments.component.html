@@ -1,1 +1,5 @@
-<app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+<div class="comments-container">
+    <p *ngIf="!comments.length">Немає коментарів</p>
+  <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+  </div>
+  

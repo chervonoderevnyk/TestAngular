@@ -11,6 +11,7 @@ import { UserComponent } from '../user/user.component';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
+
 export class UsersComponent implements OnInit {
   users: IUser[] = [];
 

@@ -1,27 +1,27 @@
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommentService } from './../../services/comment.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { CommentComponent } from "../comment/comment.component";
-import { CommonModule } from '@angular/common';
 import { IComment } from '../../interfaces/comment.interface';
+import { CommonModule } from '@angular/common';
+import { CommentComponent } from '../comment/comment.component';
 
 @Component({
   selector: 'app-comments',
-  imports: [CommentComponent, CommonModule],
+  standalone: true,
+  imports: [CommonModule, CommentComponent],
   templateUrl: './comments.component.html',
-  styleUrl: './comments.component.scss'
+  styleUrls: ['./comments.component.scss']
 })
-export class CommentsComponent implements OnInit {
+export class CommentsComponent implements OnChanges {
+  @Input() postId: number | null = null;
+  comments: IComment[] = [];
 
-  @Input()
-  postId: number;
-  comments: IComment[];
+  constructor(private commentService: CommentService) {}
 
-  constructor(private commentService:CommentService) { }
-
-  ngOnInit(): void {
-    if (this.postId) {
-      this.commentService.getCommentsByPostId(this.postId).subscribe(comments => this.comments = comments);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['postId'] && this.postId) {
+      this.commentService.getCommentsByPostId(this.postId).subscribe(comments => {
+        this.comments = comments;
+      });
     }
   }
-
 }

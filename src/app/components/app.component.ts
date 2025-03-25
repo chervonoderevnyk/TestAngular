@@ -5,6 +5,9 @@ import { CommentsComponent } from './comments/comments.component';
 import { IUser } from '../interfaces/user.interface';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../services/user.service';
+import { IPost } from '../interfaces/post.interface';
+import { IComment } from '../interfaces/comment.interface';
+import { CommentService } from '../services/comment.service';
 
 @Component({
   selector: 'app-root',
@@ -15,21 +18,30 @@ import { UserService } from '../services/user.service';
 })
 export class AppComponent implements OnInit { 
   users: IUser[] = [];
-  selectedUser: IUser | null = null;
-  isShowDetailsPost: boolean = false;
+  comments: IComment[] = [];
 
-  constructor(private userService: UserService) {}
+  selectedUser: IUser | null = null;
+  selectedPost: IPost | null = null;
+
+  constructor(
+    private userService: UserService,
+    private commentService: CommentService
+  ) {}
 
   ngOnInit(): void {
     this.userService.getAll().subscribe(users => this.users = users);
   }
-
+  
   selectUser(user: IUser): void {
     this.selectedUser = user;
-    this.isShowDetailsPost = true; // автоматично відкривати пости після вибору користувача
   }
-
-  showOrHidePosts(): void {
-    this.isShowDetailsPost = !this.isShowDetailsPost;
+  
+  selectPost(post: IPost): void {
+    this.selectedPost = post;
+    
+    // Завантажуємо коментарі для вибраного поста
+    this.commentService.getCommentsByPostId(post.id).subscribe(comments => {
+      this.comments = comments;
+    });
   }
 }

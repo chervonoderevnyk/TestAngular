@@ -6,11 +6,11 @@
 
   <div class="app-container-posts" *ngIf="selectedUser">
     <h2>Posts List</h2>
-    <app-posts *ngIf="isShowDetailsPost" [userId]="selectedUser.id"></app-posts>
+    <app-posts [userId]="selectedUser.id" (postSelected)="selectPost($event)"></app-posts>
   </div>
 
-  <div class="app-container-comments">
+  <div class="app-container-comments" *ngIf="selectedPost">
     <h2>Comments List</h2>
-    <app-comments></app-comments>
+    <app-comments [postId]="selectedPost.id"></app-comments>
   </div>
 </div>

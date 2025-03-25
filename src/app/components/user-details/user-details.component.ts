@@ -11,13 +11,13 @@ import { CommonModule } from '@angular/common';
 export class UserDetailsComponent implements OnInit {
   @Input()
    user: IUser;
-   isShowDetailsPost: boolean = false;
+  //  isShowDetailsPost: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {}
 
-  showOrHidePosts(): void {
-    this.isShowDetailsPost = !this.isShowDetailsPost;
-  }
+  // showOrHidePosts(): void {
+  //   this.isShowDetailsPost = !this.isShowDetailsPost;
+  // }
 }
