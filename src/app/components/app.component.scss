@@ -1,7 +1,6 @@
 .app-container {
   display: flex;
-  flex-direction: row;  /* Розташовуємо всі елементи в ряд */
-  justify-content: space-between; /* Рівномірно розподіляємо */
+  justify-content: flex-start;
   align-items: flex-start;
   width: 97vw;
   height: 100vh;
@@ -10,10 +9,8 @@
   margin: auto;
 }
 
-.app-container-users,
-.app-container-posts,
-.app-container-comments {
-  flex: 1;
+.app-container-users {
+  width: 23%;  // Фіксована ширина
   background: #e0dbdb;
   padding: 20px;
   border-radius: 12px;
@@ -21,11 +18,12 @@
   text-align: center;
 }
 
-.app-container-users {
-  flex: 25%;
-}
-
 .app-container-posts,
 .app-container-comments {
-  flex: 37%;
+  flex: 1;  // Решта простору ділиться рівномірно
+  background: #e0dbdb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 5px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
